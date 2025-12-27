@@ -1,6 +1,7 @@
 from domains.student import Student
 from domains.course import Course
 import csv
+import json 
 
 def save_to_csv(classroom):
     with open('student.csv', 'w', newline="", encoding='utf-8') as f:
@@ -10,6 +11,20 @@ def save_to_csv(classroom):
 
         for s in classroom:
             writer.writerow([s.getID(), s.getName(), s.getDob(), s.getGPA()])
+
+def save_to_json(classroom):
+    report = []
+    for s in classroom:
+        report.append({
+            "id": s.getID(),
+            "name": s.getName(),
+            "marks": s.getMark(),
+            "gpa": s.getGPA()
+        })
+    
+    with open('report.json', 'w', encoding='utf-8') as f:
+        json.dump(report, f, indent=4, ensure_ascii=False)
+
 
 def input_student():
     classroom = []      #student list 
