@@ -9,6 +9,10 @@ def main():
     for s in classroom:
         s.set_gpa(s.calGPA(course_db))
 
+    input.save_students_csv(classroom)
+    input.save_courses_csv(course_db)
+    input.save_report_json(classroom)
+
     output.print_student_list(classroom)
 
 if __name__ == "__main__":
