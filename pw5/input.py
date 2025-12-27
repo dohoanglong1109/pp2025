@@ -19,7 +19,7 @@ def save_course_to_csv(course_db):
         writer.writerow(["ID", "Course_name", "Credits"])
 
         for c in course_db.values():
-            writer.writerow(c.getID(), c.getName(), c.getCredits())
+            writer.writerow([c.getID(), c.getName(), c.getCredits()])
 
 def save_mark_to_json(classroom):
     report = []
