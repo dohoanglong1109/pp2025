@@ -27,7 +27,7 @@ class Student:
     def getMark(self):
         return self.__mark
 
-    def get_gpa(self):
+    def getGPA(self):
         return self.__gpa
 
     def set_gpa(self, value):
@@ -36,7 +36,7 @@ class Student:
     def addMark(self, courseID, mark):
         self.__mark[courseID] = math.floor(mark)
 
-    def calculate_gpa(self, course_db): #list, dict {course_id:object Course}
+    def calGPA(self, course_db): #list, dict {course_id:object Course}
         studied_course_mark = list(self.getMark().values())
         studies_course_id = list(self.getMark().keys())
 

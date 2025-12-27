@@ -7,7 +7,7 @@ def main():
     input.input_mark(classroom, course_db) 
 
     for s in classroom:
-        s.set_gpa(s.calculate_gpa(course_db))
+        s.set_gpa(s.calGPA(course_db))
 
     output.print_student_list(classroom)
 

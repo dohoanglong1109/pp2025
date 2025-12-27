@@ -1,5 +1,15 @@
 from domains.student import Student
 from domains.course import Course
+import csv
+
+def save_to_csv(classroom):
+    with open('student.csv', 'w', newline="", encoding='utf-8') as f:
+        writer = csv.writer(f)
+
+        writer.writerow(["ID", "Name", "DoB", "GPA"])
+
+        for s in classroom:
+            writer.writerow([s.getID(), s.getName(), s.getDob(), s.getGPA()])
 
 def input_student():
     classroom = []      #student list 
@@ -10,7 +20,7 @@ def input_student():
         s.input()
         classroom.append(s)
 
-    
+    save_to_csv(classroom)
 
     return classroom
 

@@ -38,7 +38,7 @@ def draw_results(stdscr, students):
         
         # Giả sử bạn sửa class Student có thêm thuộc tính gpa sau khi tính
         if hasattr(s, 'gpa'): 
-            gpa_val = f"{s.gpa:.2f}"
+            gpa_val = f"{s.getGPA():.2f}"
             
         stdscr.addstr(row, 50, gpa_val)
         
