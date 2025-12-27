@@ -3,7 +3,7 @@ from domains.course import Course
 import csv
 import json 
 
-def save_to_csv(classroom):
+def save_student_to_csv(classroom):
     with open('student.csv', 'w', newline="", encoding='utf-8') as f:
         writer = csv.writer(f)
 
@@ -12,7 +12,16 @@ def save_to_csv(classroom):
         for s in classroom:
             writer.writerow([s.getID(), s.getName(), s.getDob(), s.getGPA()])
 
-def save_to_json(classroom):
+def save_course_to_csv(course_db):
+    with open('course.csv', 'w', encoding='utf-8') as f:
+        writer = csv.writer(f)
+
+        writer.writerow(["ID", "Course_name", "Credits"])
+
+        for c in course_db.values():
+            writer.writerow(c.getID(), c.getName(), c.getCredits())
+
+def save_mark_to_json(classroom):
     report = []
     for s in classroom:
         report.append({
@@ -35,8 +44,6 @@ def input_student():
         s.input()
         classroom.append(s)
 
-    save_to_csv(classroom)
-
     return classroom
 
 def input_course():
@@ -48,8 +55,6 @@ def input_course():
         c.input()
         course_database[c.getID()] = c
     
-    
-
     return course_database
 
 def input_mark(classroom, course_db):
